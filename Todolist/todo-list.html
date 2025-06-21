@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>to do list</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+      }
+      body {
+        background-color: #4c94ff;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60%;
+        max-width: 32em;
+        min-width: 15em;
+        transform: translate(-50%, -50%);
+      }
+      .todo-input-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 1em;
+        padding: 2em 1.5em;
+        background: #fff;
+        border-radius: 0.8em;
+      }
+      .input-value {
+        height: 4em;
+        border-style: none;
+        border-bottom: 2px solid #d8d8d8
+      }
+      .input-value:focus {
+        outline: none;
+        border-bottom: 2px solid #2d81ff
+      }
+      .add-button {
+        height: 4em;
+        font-weight: bold;
+        background: #2d81ff;
+        border-style: none;
+        color: #fff;
+        border-radius: 0.5em;
+      }
+      .list-input-container {
+        margin-top: 1em;
+        width: 100%;
+        background: #fff;
+        border-radius: 0.5em;
+        padding: 2em 1.5em;
+      }
+      .todo-list-container {
+        display: grid;
+        padding: 0.5em 0;
+        line-height: 1em;
+        grid-template-columns: 5fr 1fr;
+        column-gap: 1em;
+        border-bottom: 0.1em solid #d8d8d8;
+      }
+      .todo-value {
+        line-height: 2em;
+      }
+      .delete-btn {
+        height:2.5em;
+        background: red;
+        color: #fff;
+        border-style: none;
+        border-radius: 0.5em;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-input-container">
+        <input class="input-value" type="text" placeholder="Please Enter Your Todo"/>
+        <button class="add-button" onclick="addNew()">Add</button>
+      </div>
+      <div class="list-input-container"></div>
+    </div>
+
+    <script>
+      let renderList = []
+      
+      // 新增
+      function addNew() {
+        const input = document.querySelector('.input-value')  
+        renderList.push({
+          value: input.value,
+          id: Date.now()
+        })
+        render()
+      }
+
+      // 添加
+      function deleteTask(id) {
+        renderList = renderList.filter(item => item.id !== id)
+        render()
+      }
+
+      // 渲染函数
+      function render() {
+        const listContainer = document.querySelector('.list-input-container')
+        listContainer.innerHTML = ''
+        
+        for (const item of renderList) {
+          const div = document.createElement('div')
+          div.innerHTML = `
+            <div class="todo-list-container">
+              <div class="todo-value">${item.value}</div>
+              <button class='delete-btn'>Del</button>
+            </div>
+          `
+          const button = div.querySelector('.delete-btn')
+          button.addEventListener('click', () => {
+            deleteTask(item.id)
+          })
+          listContainer.appendChild(div)
+        }
+      }
+
+
+    </script>	  
+  </body>
+
+</html>
