@@ -52,16 +52,24 @@ body {
   display: grid;
   padding: 0.5em 0;
   line-height: 1em;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 5fr 1fr 1fr;
   column-gap: 1em;
   border-bottom: 0.1em solid #d8d8d8;
 }
 .todo-value {
   line-height: 2em;
 }
-.delete-btn {
+.delete-btn  {
   height:2.5em;
   background: red;
+  color: #fff;
+  border-style: none;
+  border-radius: 0.5em;
+}
+
+.edit-btn {
+  height:2.5em;
+  background: rgb(28, 119, 255);
   color: #fff;
   border-style: none;
   border-radius: 0.5em;
