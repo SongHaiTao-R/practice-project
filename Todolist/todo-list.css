@@ -65,6 +65,7 @@ body {
   color: #fff;
   border-style: none;
   border-radius: 0.5em;
+  cursor: pointer;
 }
 
 .edit-btn {
@@ -73,4 +74,5 @@ body {
   color: #fff;
   border-style: none;
   border-radius: 0.5em;
+  cursor: pointer;
 }
