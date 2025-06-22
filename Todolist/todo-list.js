@@ -1,12 +1,26 @@
 let renderList = []
+let input = document.querySelector('.input-value')  
+
+window.onload = () => {
+  const list = localStorage.getItem('renderList')
+  const newRenderList = JSON.parse(list)
+  if (!newRenderList) renderList = []
+  renderList = newRenderList 
+  render()
+}
+
+// 客户端存储
+function saveRenderList() {
+  localStorage.setItem('renderList', JSON.stringify(renderList))
+}
       
 // 新增
-function addNew() {
-  const input = document.querySelector('.input-value')  
+function addNew() { 
   renderList.push({
     value: input.value,
     id: Date.now()
   })
+  saveRenderList()
   input.value = ''
   render()
 }
@@ -14,13 +28,13 @@ function addNew() {
 // 删除
 function deleteTask(id) {
   renderList = renderList.filter(item => item.id !== id)
+  saveRenderList()
   render()
 }
 
 // 编辑
 function editTask(id) {
   const value = renderList.find(item => item.id === id).value
-  const input = document.querySelector('.input-value') 
   input.value = value
   input.focus()
   deleteTask(id)
