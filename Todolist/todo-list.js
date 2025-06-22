@@ -40,6 +40,18 @@ function editTask(id) {
   deleteTask(id)
 }
 
+// 为按钮添加监听事件
+function addListenerBtnEvent(element) {
+  element.addEventListener('click', (event) => {
+    if (event.target.matches('.edit-btn')) {
+      editTask(item.id)
+    }
+    if (event.target.matches('.delete-btn')) {
+      deleteTask(item.id)
+    }
+  })
+}
+
 // 渲染函数
 function render() {
   const listContainer = document.querySelector('.list-input-container')
@@ -55,14 +67,7 @@ function render() {
       </div>
     `
     const element = div.querySelector('.todo-list-container')
-    element.addEventListener('click', (event) => {
-      if (event.target.matches('.edit-btn')) {
-        editTask(item.id)
-      }
-      if (event.target.matches('.delete-btn')) {
-        deleteTask(item.id)
-      }
-    })
+    addListenerBtnEvent(element)
     listContainer.appendChild(div)
   }
 }
