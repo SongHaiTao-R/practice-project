@@ -7,10 +7,11 @@ function addNew() {
     value: input.value,
     id: Date.now()
   })
+  input.value = ''
   render()
 }
 
-// 添加
+// 删除
 function deleteTask(id) {
   debugger
   renderList = renderList.filter(item => item.id !== id)
@@ -18,8 +19,11 @@ function deleteTask(id) {
 }
 
 // 编辑
-function editTask() {
-  console.log('edit++')
+function editTask(id) {
+  const value = renderList.find(item => item.id === id).value
+  const input = document.querySelector('.input-value') 
+  input.value = value
+  deleteTask(id)
 }
 
 // 渲染函数
@@ -40,7 +44,7 @@ function render() {
     const element = div.querySelector('.todo-list-container')
     element.addEventListener('click', (event) => {
       if (event.target.matches('.edit-btn')) {
-        editTask()
+        editTask(item.id)
       }
       if (event.target.matches('.delete-btn')) {
         deleteTask(item.id)
