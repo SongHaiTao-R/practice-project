@@ -13,7 +13,6 @@ function addNew() {
 
 // 删除
 function deleteTask(id) {
-  debugger
   renderList = renderList.filter(item => item.id !== id)
   render()
 }
@@ -23,12 +22,12 @@ function editTask(id) {
   const value = renderList.find(item => item.id === id).value
   const input = document.querySelector('.input-value') 
   input.value = value
+  input.focus()
   deleteTask(id)
 }
 
 // 渲染函数
 function render() {
-  console.log(111)
   const listContainer = document.querySelector('.list-input-container')
   listContainer.innerHTML = ''
   
