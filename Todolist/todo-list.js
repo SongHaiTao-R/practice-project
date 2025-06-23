@@ -40,6 +40,18 @@ function editTask(id) {
   deleteTask(id)
 }
 
+// 为按钮添加监听事件
+function addListenerBtnEvent(id, element) {
+  element.addEventListener('click', (event) => {
+    if (event.target.matches('.edit-btn')) {
+      editTask(id)
+    }
+    if (event.target.matches('.delete-btn')) {
+      deleteTask(id)
+    }
+  })
+}
+
 // 渲染函数
 function render() {
   const listContainer = document.querySelector('.list-input-container')
@@ -50,19 +62,12 @@ function render() {
     div.innerHTML = `
       <div class="todo-list-container">
         <div class="todo-value">${item.value}</div>
-        <button class="edit-btn" data-action="edit">edit</button>
+        <button class="edit-btn" data-action="edit">Edit</button>
         <button class='delete-btn' data-action="del">Del</button>
       </div>
     `
     const element = div.querySelector('.todo-list-container')
-    element.addEventListener('click', (event) => {
-      if (event.target.matches('.edit-btn')) {
-        editTask(item.id)
-      }
-      if (event.target.matches('.delete-btn')) {
-        deleteTask(item.id)
-      }
-    })
+    addListenerBtnEvent(item.id, element)
     listContainer.appendChild(div)
   }
 }
