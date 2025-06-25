@@ -10,26 +10,52 @@
   <div class="drawing-contain">
     <div class="tool-left">
       <ul>
-        <li>Shapes</li>
-        <li>Rectangle</li>
-        <li>Circle</li>
-        <li>Triangle</li>
-        <li>Fill color</li>
-      </ul>
-      <ul>
-        <li>Options</li>
-        <li>Brush</li>
-        <li>Eraser</li>
+        <label>Shapes</label>
         <li>
-          <input type="range"/>
+          <image src="./assest/icon-square.svg"/>
+          Rectangle
+        </li>
+        <li>
+          <image src="./assest/icon-circle.svg"/>
+          Circle
+        </li>
+        <li>
+          <image src="./assest/icon-caret.svg"/>
+          Triangle
+        </li>
+        <li>
+          <input type="checkbox" id="scales" name="scales"/>
+          <lable for="scales">Fill color</lable>
         </li>
       </ul>
       <ul>
-        <li>Colors</li>
+        <label>Options</label>
+        <li>
+          <image src="./assest/icon-brush.svg"/>
+          Brush
+        </li>
+        <li>
+          <image src="./assest/icon-eraser.svg"/>
+          Eraser
+        </li>
+        <li>
+          <input type="range" class="input-range"/>
+        </li>
       </ul>
+      <div class="colors-contain">
+        <label>Colors</label>
+        <ul class="option">
+          <li class="options"></li>
+          <li class="options"></li>
+          <li class="options"></li>
+          <li class="options"></li>
+          <li class="options"></li>
+        </ul>
+      </div>
+
       <div class="drawing-button">
-        <button>Clear Canvas</button>
-        <button>Save As Image</button>
+        <button class="btn btn-clear">Clear Canvas</button>
+        <button class="btn btn-save">Save As Image</button>
       </div>
     </div>
     <div class="drawing-right"></div>
