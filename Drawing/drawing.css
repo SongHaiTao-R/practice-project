@@ -23,6 +23,17 @@ body {
   background: #fff;
   border-radius: 0.5em;
 }
+.option :where(span, label) {
+  color: #5A6168;
+  padding-left: 10px;
+}
+.option:is(:hover, .active) {
+  color: #4a98F7
+}
+.option:is(:hover, .active) :where(span, label) {
+  color: #4a98F7
+}
+/* .option :is(:hover, ) */
 .drawing-right {
   background: #fff;
   border-radius: 0.5em;
@@ -37,36 +48,75 @@ ul {
 .input-range {
   width: 100%;
 }
-.colors-contain .option {
+.colors-contain .options {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.6em 0 0 0.5em;
+  padding: 0.6em 0 0 0em;
 }
-.colors-contain .options {
+.colors-contain .option {
   width: 26px;
   height: 26px;
   background: red;
   border-radius: 50%;
+  position: relative;
 }
-.drawing-button {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  row-gap: 1em;
+.colors-contain .option.selected::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  color: inherit;
 }
-.drawing-button .btn {
-  width: 100%;
-  padding: 1em 1em;
-  border-radius: 0.5em;
-  border-style: none;
-  font-size: 1em;
-}
-.drawing-button .btn-clear {
-  border: 1px solid #adadad;
-  color: #6e6e6e;
+.colors-contain .option:nth-child(1) {
   background: #fff;
+  border: 1px solid #707070;
 }
-.drawing-button .btn-save {
-  background: #2e9aff;
+.colors-contain .option:nth-child(2) {
+  background: #000000;
+}
+.colors-contain .option:nth-child(3) {
+  background: #ff0000;
+}
+.colors-contain .option:nth-child(4) {
+  background: #00d66b;
+}
+.colors-contain .option:nth-child(5) {
+  background: #002ec4;
+}
+.colors-contain .option:first-child.selected::before {
+  border-color: #707070;
+}
+.option #color-picker {
+  opacity: 0;
+  cursor: pointer;
+}
+.buttons button {
+  width: 100%;
+  padding: 11px 0;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background: none;
+  transition: all 0.3s ease;
+}
+.buttons .clear-canvas {
+  border: 1px solid #8a8a8a;
+  color: #8a8a8a;
+}
+.clear-canvas:hover {
+  color: #fff;
+  background: #8a8a8a;
+}
+.buttons .save-img {
+  background: #008ae6;
   color: #fff;
 }

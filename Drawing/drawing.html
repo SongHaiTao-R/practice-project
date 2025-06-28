@@ -9,53 +9,55 @@
 <body>
   <div class="drawing-contain">
     <div class="tool-left">
-      <ul>
+      <ul class="options">
         <label>Shapes</label>
-        <li>
+        <li class="option">
           <image src="./assest/icon-square.svg"/>
-          Rectangle
+          <span>Rectangle</span>
         </li>
-        <li>
+        <li class="option">
           <image src="./assest/icon-circle.svg"/>
-          Circle
+          <span>Circle</span>
         </li>
-        <li>
+        <li class="option">
           <image src="./assest/icon-caret.svg"/>
-          Triangle
+          <span>Triangle</span>
         </li>
-        <li>
+        <li class="option">
           <input type="checkbox" id="scales" name="scales"/>
-          <lable for="scales">Fill color</lable>
+          <label class="active">Fill color</label>
         </li>
       </ul>
-      <ul>
-        <label>Options</label>
-        <li>
+      <ul class="options">
+        <label>Options</label>  
+        <li class="option">
           <image src="./assest/icon-brush.svg"/>
-          Brush
-        </li>
-        <li>
+          <span>Brush</span>
+        </li class="option">
+        <li class="option">
           <image src="./assest/icon-eraser.svg"/>
-          Eraser
-        </li>
-        <li>
+          <span>Eraser</span>
+        </li class="option">
+        <li class="option">
           <input type="range" class="input-range"/>
         </li>
       </ul>
       <div class="colors-contain">
         <label>Colors</label>
-        <ul class="option">
-          <li class="options"></li>
-          <li class="options"></li>
-          <li class="options"></li>
-          <li class="options"></li>
-          <li class="options"></li>
+        <ul class="options">
+          <li class="option"></li>
+          <li class="option selected" ></li>
+          <li class="option"></li>
+          <li class="option"></li>
+          <li class="option">
+            <input type="color" id="color-picker" value="#002ec4"/>
+          </li>
         </ul>
       </div>
 
-      <div class="drawing-button">
-        <button class="btn btn-clear">Clear Canvas</button>
-        <button class="btn btn-save">Save As Image</button>
+      <div class="buttons">
+        <button class="clear-canvas">Clear Canvas</button>
+        <button class="save-img">Save As Image</button>
       </div>
     </div>
     <div class="drawing-right"></div>
