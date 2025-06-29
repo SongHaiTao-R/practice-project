@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drawing</title>
   <link rel="stylesheet" href="./drawing.css"/>
+  <script src="drawing.js" defer></script>
 </head>
 <body>
   <div class="drawing-contain">
-    <div class="tool-left">
+    <section class="tool-left">
       <ul class="options">
         <label>Shapes</label>
         <li class="option">
@@ -59,8 +60,10 @@
         <button class="clear-canvas">Clear Canvas</button>
         <button class="save-img">Save As Image</button>
       </div>
-    </div>
-    <div class="drawing-right"></div>
+    </section>
+    <section class="drawing-board">
+      <canvas></canvas>
+    </section>
   </div>
 </body>
 </html>
